@@ -39,9 +39,15 @@ for i in array.filter({$0%2==0}){
 }
 
 
-func printMoreThan10(){
-
+func printMoreThan10(num: Int){
+    guard num >= 10 else{
+        return
+    }
+    print(num)
 }
+
+printMoreThan10(num:100)
+
 
 
 
