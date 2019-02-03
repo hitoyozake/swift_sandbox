@@ -49,10 +49,12 @@ func printMoreThan10(num: Int){
 printMoreThan10(num:100)
 
 // swiftのｓswitchみには網羅性が必要となる．defaultは網羅性を満たすのには楽だが安易な使用は注意
-let a_ = 45
-switch a {
-case 0..<10:
+let a_ = 7
+switch a_ {
+case 0..<10 where a % 2 == 0:
     print("a is less than 10")
+case 0..<10 where a % 2 != 0:
+    print("a is less than 10 ver2")
 case 10...100:
     print("a is in [10...100]")
 default:
