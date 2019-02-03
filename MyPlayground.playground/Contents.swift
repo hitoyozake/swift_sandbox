@@ -41,12 +41,24 @@ for i in array.filter({$0%2==0}){
 
 func printMoreThan10(num: Int){
     guard num >= 10 else{
-        return
+        return //guardは条件が成り立たない時にスコープを抜ける義務が発生する
     }
     print(num)
 }
 
 printMoreThan10(num:100)
+
+// swiftのｓswitchみには網羅性が必要となる．defaultは網羅性を満たすのには楽だが安易な使用は注意
+let a_ = 45
+switch a {
+case 0..<10:
+    print("a is less than 10")
+case 10...100:
+    print("a is in [10...100]")
+default:
+    print("default")
+}
+
 
 
 
