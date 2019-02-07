@@ -63,6 +63,113 @@ default:
 }
 
 
+// swiftのlabel付き break
+
+label: for i in 0...5{
+    print("parent:", i)
+    label2: for j in 0...5{
+        print("child:", j)
+        break label2
+    }
+}
 
 
+repeat {
+    print("do while -> repeat while")
+   
+    break
+}while true
+
+for i in 0..<4
+{
+    let a = "abc"
+    print(i)
+    defer {
+        print(i, a)
+        print("この文章は親スコープが抜ける時に実行される")
+    }
+    print("piyo")
+}
+
+// パターンマッチ***********
+// ~=演算子 (パターンマッチした場合はtrueを返す．switchの内部でも使われている)
+
+let u = 100
+
+if u ~= 100{
+    print("matched")
+}
+
+switch u {
+case 99:
+    break
+case 99...100:
+    print("99-100 matched")
+default:
+    print("default")
+}
+
+let lpt = 2 // let
+
+switch lpt{
+case let matched where lpt < 3:
+    print("let matched,", matched)
+case var matched:
+    print("var matched,", matched)
+}
+
+// 列挙型パターンマッチ
+enum Colors{
+    case Red
+    case Blue
+    case Green
+}
+
+let color = Colors.Blue
+
+switch color{
+case .Red:
+    print("RED")
+case .Blue:
+    print("Blue")
+case .Green:
+    print("Green")
+}
+
+//連想値パターンマッチ
+enum ColorKinds{
+    case rgb(Int, Int, Int)
+    case cmyk(Int, Int, Int)
+}
+let color_k = ColorKinds.rgb(100, 100, 100)
+
+switch color_k{
+case .rgb:
+    print("rgb")
+case .cmyk:
+    print("cmyk")
+}
+
+// type casting
+
+let any: Any = 4
+
+switch any{
+case is String:
+    print("string")
+case is Int:
+    print("int")
+default:
+    break
+}
+let int: Int = 4
+
+switch int{
+case is String:
+    print("string")
+case is Int:
+    print("int")
+default:
+    break
+}
 
