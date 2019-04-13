@@ -173,3 +173,30 @@ default:
     break
 }
 
+print("*************rangeの確認************")
+// rangeのて確認
+let rangeA = 0 ..< 3 // 右半開区間
+
+for i in rangeA{
+    print(i) // 0, 1, 2
+}
+
+let rangeB = 0...3 //閉区間
+//let zzz : range<int>
+
+for i in rangeB{
+    print(i) // 0, 1, 2, 3
+}
+
+let rangeC = 1.0 ... 3.0 // double区間
+//let rangeC : Range<Double>
+
+/* integerではないのでこれはできない
+for i in rangeC {
+    print(i)
+}*/
+
+
+
+
+
