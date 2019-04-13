@@ -34,4 +34,24 @@ func get_discardableResult()->Double{
 
 get_discardableResult()
 _ = get_discardableResult() // _で受け取ると明示的に結果を捨てることを示すことができる
+//引数が２つの場合
+func get_2double(x_ x: Double, y_ y: Double )->(Double, Double){
+    return (x*2, y*2)
+}
 
+print(get_2double(x_: 4.1, y_: 3.2))
+
+func get_2double2(x_ x : Double = 2.2, y_ y: Double)->Double{
+    return 1.2
+}
+// swiftのdefault引数は最後である必要はない！
+get_2double2(y_: 4.2)
+
+//inout引数 すなわち参照渡し
+func inout_test(_ s: inout String){
+    s += "hoge"
+}
+
+var s:String = "piyo"
+inout_test(&s)
+print(s)
