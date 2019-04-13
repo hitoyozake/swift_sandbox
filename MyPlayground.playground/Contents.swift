@@ -216,6 +216,16 @@ default:
     print("not matched")
 }
 
+// value binding pattern
+
+switch 8{
+case 1:
+    break
+    
+case let matched_value:
+    print("matched_value", matched_value)
+}
+
 
 
 
