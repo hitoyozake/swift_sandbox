@@ -66,4 +66,15 @@ func variable_args(_ strings: String...){
 
 variable_args("abc", "def", "ghiJKLMNOPQ")
 
+//closureの実装
+let my_closure = { (_ x: Int) -> Int in
+        let x2 = x * 2
+        return x2
+    }
 
+print(my_closure(4))
+
+// 引数と戻り値の型を省略することも可能
+print({ string in
+    string.count * 2
+}("abcdefg"))
