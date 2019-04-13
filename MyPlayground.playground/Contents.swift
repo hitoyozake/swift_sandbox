@@ -188,13 +188,33 @@ for i in rangeB{
     print(i) // 0, 1, 2, 3
 }
 
-let rangeC = 1.0 ... 3.0 // double区間
-//let rangeC : Range<Double>
+// double区間
+let rangeC : Range<Double>
 
 /* integerではないのでこれはできない
-for i in rangeC {
+//for i in rangeC {
+//    print(i)
+//}
+*/
+
+/********************/
+for i in [1, 2, 3]{
+    // forのその場で配列などを作ることも可能
     print(i)
-}*/
+}
+
+// doubleの区間の活用
+
+let dvalue=4.23
+
+switch dvalue {
+case 0.0:
+    print("0.0")
+case 3.0...5.0:
+    print("3.0<=value<=5.0")
+default:
+    print("not matched")
+}
 
 
 
