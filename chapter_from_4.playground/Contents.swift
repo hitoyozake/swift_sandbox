@@ -75,6 +75,13 @@ let my_closure = { (_ x: Int) -> Int in
 print(my_closure(4))
 
 // 引数と戻り値の型を省略することも可能
-print({ string in
+print({ string in // 簡略引数名はclosureのみで実行可能
     string.count * 2
 }("abcdefg"))
+
+// クロージャは外部引数名を使うことができない
+let my_closure2 = { (b: Int)-> Int in
+    b * 2
+}
+
+print(my_closure2(5))
