@@ -55,3 +55,15 @@ func inout_test(_ s: inout String){
 var s:String = "piyo"
 inout_test(&s)
 print(s)
+
+func variable_args(_ strings: String...){
+    print("strings count is :", strings.count)
+    
+    for i in strings{
+        print(i)
+    }
+}
+
+variable_args("abc", "def", "ghiJKLMNOPQ")
+
+
