@@ -156,11 +156,11 @@ struct SomeStruct{
     
     
     var computedProperty:Int{
-        get {
+        get { // getterは必須
             return doubleProperty * 2
         }
         
-        set {
+        set { //setterは省略可能
             // newValueはsetの= の右辺に渡された値を暗黙的に宣言
            self.property = 4.25 * newValue
         }
