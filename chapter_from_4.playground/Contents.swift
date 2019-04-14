@@ -162,7 +162,7 @@ struct SomeStruct{
         
         set { //setterは省略可能
             // newValueはsetの= の右辺に渡された値を暗黙的に宣言
-           self.property = 4.25 * newValue
+           self.property = Int(4.25 * Double(newValue))
         }
     }
     
@@ -189,10 +189,18 @@ struct SomeStruct{
     func callFuncFromFunc(){
         getVariable()
     }
+    
+    //initializer(constructor) 失敗可能な場合は ? をつける(return nilで失敗扱い)
+    init?(val v:Int = 1){
+        if v%2 == 0{
+            return nil
+        }
+        
+    }
 }
 
-let sstr = SomeStruct()
-let sstr2 = SomeStruct()
+let sstr = SomeStruct()!
+let sstr2 = SomeStruct()!
 print(sstr.getValue())
 
 sstr.callFuncFromFunc()
@@ -201,11 +209,37 @@ print(sstr.get_staticvalue())
 sstr2.set_staticvalue(4)
 print(sstr.get_staticvalue())
 
+let sstr3 = SomeStruct()
 
+sstr3?.get_staticvalue()
 
+struct ReturnValueCheck{
+    func overrideByReturnValue()->Int{
+        return 0
+    }
+    func overrideByReturnValue()->String{
+        return "abc"
+    }
+    func overrideByArgsType(_ s:String){
+        
+    }
+    func overrideByArgsType(_ i:Int){
+        
+    }
+    
+    init(name: String){
+        
+    }
+    
+    init(){
+        self.init(name:"aaa")
+    }
+}
 
-
-
-
-
+//Extensionはモンキーパッチを作れる
+extension ReturnValueCheck{
+    func ExtendedMethod(){
+        print("extended method")
+    }
+}
 
