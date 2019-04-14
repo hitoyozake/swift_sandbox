@@ -99,3 +99,30 @@ let my_closure2 = { (b: Int)-> Int in
 }
 
 print(my_closure2(5))
+
+let numbers = [ 1, 2, 3, 4, 5, 6, 7,8, 9, 10]
+
+let filtered_nums = numbers.filter({$0%2==0})
+
+print(filtered_nums)
+
+func named(){
+    print("hoge")
+}
+
+let closure_binded = named
+
+// 関数はclosureの一種
+closure_binded()
+
+let array = Array(repeating: Array(repeating: 1, count: 3), count:4)
+//array = [ [1, 1, 1],[1, 1, 1],[1, 1, 1],[1, 1, 1]]
+
+var board: [[Int]] = {
+    let sideLength = 3
+    let row = Array(repeating: 1, count: 3)
+    let board = Array(repeating: row, count: sideLength)
+    return board
+}()
+
+print("hogehoge")
