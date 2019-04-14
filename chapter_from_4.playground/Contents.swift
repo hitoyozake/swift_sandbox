@@ -14,6 +14,9 @@ PlaygroundPage.current.liveView = views[0] as! NSView
 
 print("hello")
 
+func chapter_4(){
+    
+
 func get_double_value(x: Double) -> Double{
     return x*2.0
 }
@@ -126,3 +129,83 @@ var board: [[Int]] = {
 }()
 
 print("hogehoge")
+}
+// *************** 型 ***************** //
+// chapter5
+struct SomeStruct{
+    //メンバ変数のことをプロパティと呼ぶ
+    //値を持つのでストアドプロパティ
+    let value = 10
+    var variable = 25
+    static var s_value = 1
+    
+    
+    var doubleProperty = 0
+    //computed property
+    var property = 0 {
+        willSet {
+            //プロパティ変更前に実施. newValueはsetされる予定の値として暗黙的に定義される
+            let willSetValue = newValue
+        }
+        didSet{
+            self.doubleProperty = property*2
+            //プロパティ変更後に実施
+            //オブザーバなどに使用する
+        }
+    }
+    
+    
+    var computedProperty:Int{
+        get {
+            return doubleProperty * 2
+        }
+        
+        set {
+            // newValueはsetの= の右辺に渡された値を暗黙的に宣言
+           self.property = 4.25 * newValue
+        }
+    }
+    
+    // 遅延setプロパティ．使用される直前まで初期化されない．初期化コストが高いクラスなどでは有用
+    lazy var lv = 0
+    
+    
+    func getValue()->Int{
+        return self.value
+    }
+    
+    func set_staticvalue(_ v: Int){
+        SomeStruct.s_value = v
+    }
+    
+    func get_staticvalue()->Int{
+        return SomeStruct.s_value
+    }
+    
+    func getVariable()->Int{
+        return self.variable
+    }
+    
+    func callFuncFromFunc(){
+        getVariable()
+    }
+}
+
+let sstr = SomeStruct()
+let sstr2 = SomeStruct()
+print(sstr.getValue())
+
+sstr.callFuncFromFunc()
+
+print(sstr.get_staticvalue())
+sstr2.set_staticvalue(4)
+print(sstr.get_staticvalue())
+
+
+
+
+
+
+
+
+
