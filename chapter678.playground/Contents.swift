@@ -68,10 +68,19 @@ enum Week{
         }
         
     }
-
 }
 
 
+enum RawValueEnumrator: Int{
+    //init? とプロパティrawValueが暗黙的に定義される
+    
+    case none
+    case one = 1
+    case two = 2
 
+}
 
+//　相互変換可能な列挙型になる
+
+// ************* chapter 7 ************ //
 
